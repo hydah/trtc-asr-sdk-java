@@ -43,7 +43,7 @@ class SdkInfoTest {
         Map<String, String> params = SdkInfo.reportParams();
         assertEquals("java", params.get("sdk_lang"));
         assertEquals("server", params.get("sdk_type"));
-        assertEquals("0.1.0", params.get("version"));
+        assertEquals(SdkInfo.SDK_VERSION, params.get("version"));
         assertEquals(SdkInfo.platform(), params.get("platform"));
         assertEquals(4, params.size());
     }
@@ -73,7 +73,7 @@ class SdkInfoTest {
         // Sorted keys keep the fragment byte-identical across the transports,
         // which makes captured URLs comparable in server-side logs.
         assertEquals("platform=" + SignatureParams.queryEscape(SdkInfo.platform())
-                + "&sdk_lang=java&sdk_type=server&version=0.1.0", SdkInfo.reportQuery());
+                + "&sdk_lang=java&sdk_type=server&version=" + SdkInfo.SDK_VERSION, SdkInfo.reportQuery());
     }
 
     @Test

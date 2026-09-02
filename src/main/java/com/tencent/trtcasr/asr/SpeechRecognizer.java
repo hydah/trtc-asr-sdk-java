@@ -82,7 +82,7 @@ public class SpeechRecognizer {
     private final SpeechRecognitionListener listener;
 
     // Configuration. Set via setters before start().
-    private String endpoint = ENDPOINT;
+    private String endpoint = "";
     private final String engineModelType;
     private int voiceFormat = 1; // PCM
     private int needVad = 1;
@@ -404,7 +404,8 @@ public class SpeechRecognizer {
 
         String query = p.buildQueryStringWithSignature(userSig);
         // URL path uses the Tencent Cloud AppID (not SdkAppID).
-        String wsUrl = endpoint + "/asr/v2/" + credential.getAppId() + "?" + query;
+        String base = Credential.resolveWSEndpoint(endpoint, credential.getSite());
+        String wsUrl = base + "/asr/v2/" + credential.getAppId() + "?" + query;
 
         callbackExecutor = Executors.newSingleThreadExecutor(new ThreadFactory() {
             @Override

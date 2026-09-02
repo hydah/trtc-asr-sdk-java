@@ -54,6 +54,7 @@ class Printer implements SpeechRecognitionListener {
 }
 
 Credential credential = new Credential(appId, sdkAppId, "your-sdk-secret-key");
+// credential.setSite(Credential.SITE_INTL); // 国际站；不调用则走国内站
 SpeechRecognizer recognizer = new SpeechRecognizer(credential, "16k_zh", new Printer());
 
 // 可选配置（全部在 start 前调用）：

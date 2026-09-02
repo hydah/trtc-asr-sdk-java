@@ -49,7 +49,7 @@ public class FileRecognizer {
     private static final ObjectMapper MAPPER = new ObjectMapper();
 
     private final Credential credential;
-    private String endpoint = FILE_ENDPOINT;
+    private String endpoint = "";
     private HttpClient httpClient = HttpClient.newBuilder()
             .connectTimeout(Duration.ofSeconds(60))
             .build();
@@ -237,7 +237,7 @@ public class FileRecognizer {
         }
 
         String reqUrl = String.format("%s%s?AppId=%d&Secretid=%d&RequestId=%s&Timestamp=%d&%s",
-                endpoint, path, credential.getAppId(), credential.getAppId(), requestId,
+                Credential.resolveHTTPEndpoint(endpoint, credential.getSite()), path, credential.getAppId(), credential.getAppId(), requestId,
                 System.currentTimeMillis() / 1000, SdkInfo.reportQuery());
 
         HttpRequest httpReq = HttpRequest.newBuilder(URI.create(reqUrl))

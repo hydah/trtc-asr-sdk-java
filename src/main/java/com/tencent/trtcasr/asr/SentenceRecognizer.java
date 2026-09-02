@@ -41,7 +41,7 @@ public class SentenceRecognizer {
     private static final ObjectMapper MAPPER = new ObjectMapper();
 
     private final Credential credential;
-    private String endpoint = SENTENCE_ENDPOINT;
+    private String endpoint = "";
     private HttpClient httpClient = HttpClient.newBuilder()
             .connectTimeout(Duration.ofSeconds(30))
             .build();
@@ -87,7 +87,7 @@ public class SentenceRecognizer {
 
         String reqUrl = String.format(
                 "%s/v1/SentenceRecognition?AppId=%d&Secretid=%d&RequestId=%s&Timestamp=%d&%s",
-                endpoint, credential.getAppId(), credential.getAppId(), requestId,
+                Credential.resolveHTTPEndpoint(endpoint, credential.getSite()), credential.getAppId(), credential.getAppId(), requestId,
                 System.currentTimeMillis() / 1000, SdkInfo.reportQuery());
 
         byte[] body;

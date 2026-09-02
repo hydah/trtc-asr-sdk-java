@@ -119,6 +119,10 @@ public class SignatureParams {
         m.put("voice_format", Integer.toString(voiceFormat));
         m.put("needvad", Integer.toString(needVad));
 
+        // SDK self-identification for server-side diagnostics. Not part of the
+        // signature (the signature is the UserSig), so it is safe to append.
+        m.putAll(SdkInfo.reportParams());
+
         if (sdkAppId > 0) {
             m.put("sdkappid", Long.toString(sdkAppId));
         }

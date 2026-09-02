@@ -19,6 +19,7 @@ import com.fasterxml.jackson.databind.ObjectMapper;
 import com.tencent.trtcasr.common.ASRException;
 import com.tencent.trtcasr.common.Credential;
 import com.tencent.trtcasr.common.ErrorCodes;
+import com.tencent.trtcasr.common.SdkInfo;
 import com.tencent.trtcasr.common.UserSig;
 
 /**
@@ -85,9 +86,9 @@ public class SentenceRecognizer {
         }
 
         String reqUrl = String.format(
-                "%s/v1/SentenceRecognition?AppId=%d&Secretid=%d&RequestId=%s&Timestamp=%d",
+                "%s/v1/SentenceRecognition?AppId=%d&Secretid=%d&RequestId=%s&Timestamp=%d&%s",
                 endpoint, credential.getAppId(), credential.getAppId(), requestId,
-                System.currentTimeMillis() / 1000);
+                System.currentTimeMillis() / 1000, SdkInfo.reportQuery());
 
         byte[] body;
         try {

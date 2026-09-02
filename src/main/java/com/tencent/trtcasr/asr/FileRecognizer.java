@@ -19,6 +19,7 @@ import com.fasterxml.jackson.databind.ObjectMapper;
 import com.tencent.trtcasr.common.ASRException;
 import com.tencent.trtcasr.common.Credential;
 import com.tencent.trtcasr.common.ErrorCodes;
+import com.tencent.trtcasr.common.SdkInfo;
 import com.tencent.trtcasr.common.SpeakerRole;
 import com.tencent.trtcasr.common.UserSig;
 
@@ -235,9 +236,9 @@ public class FileRecognizer {
             }
         }
 
-        String reqUrl = String.format("%s%s?AppId=%d&Secretid=%d&RequestId=%s&Timestamp=%d",
+        String reqUrl = String.format("%s%s?AppId=%d&Secretid=%d&RequestId=%s&Timestamp=%d&%s",
                 endpoint, path, credential.getAppId(), credential.getAppId(), requestId,
-                System.currentTimeMillis() / 1000);
+                System.currentTimeMillis() / 1000, SdkInfo.reportQuery());
 
         HttpRequest httpReq = HttpRequest.newBuilder(URI.create(reqUrl))
                 .timeout(requestTimeout)

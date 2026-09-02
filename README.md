@@ -111,9 +111,9 @@ mvn test
 ## 示例
 
 ```bash
-export TRTC_APP_ID=13xxxxxxxx
-export TRTC_SDK_APP_ID=14xxxxxxxx
-export TRTC_SECRET_KEY=your-sdk-secret-key
+export TRTC_ASR_APP_ID=13xxxxxxxx
+export TRTC_ASR_SDK_APP_ID=14xxxxxxxx
+export TRTC_ASR_SECRET_KEY=your-sdk-secret-key
 
 mvn -q compile
 java -cp target/classes com.tencent.trtcasr.examples.RealtimeAsrExample path/to/audio.pcm

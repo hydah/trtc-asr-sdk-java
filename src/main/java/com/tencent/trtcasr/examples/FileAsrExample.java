@@ -10,8 +10,8 @@ import com.tencent.trtcasr.common.Credential;
 /**
  * Async file recognition example (long audio, up to 12h).
  *
- * <p>Credentials come from environment variables: TRTC_APP_ID,
- * TRTC_SDK_APP_ID, TRTC_SECRET_KEY.
+ * <p>Credentials come from environment variables: TRTC_ASR_APP_ID,
+ * TRTC_ASR_SDK_APP_ID, TRTC_ASR_SECRET_KEY.
  *
  * <p>Usage: FileAsrExample &lt;audio.pcm&gt; | FileAsrExample -u &lt;https-url&gt;
  */
@@ -23,9 +23,9 @@ public class FileAsrExample {
         }
 
         Credential credential = new Credential(
-                Long.parseLong(env("TRTC_APP_ID")),
-                Long.parseLong(env("TRTC_SDK_APP_ID")),
-                env("TRTC_SECRET_KEY"));
+                Long.parseLong(env("TRTC_ASR_APP_ID")),
+                Long.parseLong(env("TRTC_ASR_SDK_APP_ID")),
+                env("TRTC_ASR_SECRET_KEY"));
         FileRecognizer recognizer = new FileRecognizer(credential);
 
         try {

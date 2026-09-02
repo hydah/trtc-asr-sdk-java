@@ -10,8 +10,8 @@ import com.tencent.trtcasr.common.Credential;
 /**
  * One-shot sentence recognition example (audio <= 60s / 3MB).
  *
- * <p>Credentials come from environment variables: TRTC_APP_ID,
- * TRTC_SDK_APP_ID, TRTC_SECRET_KEY.
+ * <p>Credentials come from environment variables: TRTC_ASR_APP_ID,
+ * TRTC_ASR_SDK_APP_ID, TRTC_ASR_SECRET_KEY.
  *
  * <p>Usage: SentenceAsrExample &lt;audio.pcm&gt; [format=pcm]
  * [engine=16k_zh_en]
@@ -27,9 +27,9 @@ public class SentenceAsrExample {
         String engine = args.length > 2 ? args[2] : "16k_zh_en";
 
         Credential credential = new Credential(
-                Long.parseLong(env("TRTC_APP_ID")),
-                Long.parseLong(env("TRTC_SDK_APP_ID")),
-                env("TRTC_SECRET_KEY"));
+                Long.parseLong(env("TRTC_ASR_APP_ID")),
+                Long.parseLong(env("TRTC_ASR_SDK_APP_ID")),
+                env("TRTC_ASR_SECRET_KEY"));
 
         byte[] data = Files.readAllBytes(Path.of(path));
         SentenceRecognizer recognizer = new SentenceRecognizer(credential);

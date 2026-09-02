@@ -16,8 +16,8 @@ import com.tencent.trtcasr.common.Credential;
  *
  * <p>Reads a PCM file (16kHz 16bit mono) and streams it in 200ms chunks.
  *
- * <p>Credentials come from environment variables: TRTC_APP_ID,
- * TRTC_SDK_APP_ID, TRTC_SECRET_KEY.
+ * <p>Credentials come from environment variables: TRTC_ASR_APP_ID,
+ * TRTC_ASR_SDK_APP_ID, TRTC_ASR_SECRET_KEY.
  *
  * <p>Usage: RealtimeAsrExample &lt;audio.pcm&gt; [engine_model_type]
  */
@@ -73,9 +73,9 @@ public class RealtimeAsrExample {
         String engine = args.length > 1 ? args[1] : "16k_zh_en";
 
         Credential credential = new Credential(
-                Long.parseLong(env("TRTC_APP_ID")),
-                Long.parseLong(env("TRTC_SDK_APP_ID")),
-                env("TRTC_SECRET_KEY"));
+                Long.parseLong(env("TRTC_ASR_APP_ID")),
+                Long.parseLong(env("TRTC_ASR_SDK_APP_ID")),
+                env("TRTC_ASR_SECRET_KEY"));
 
         SpeechRecognizer recognizer = new SpeechRecognizer(credential, engine, new Printer());
         // recognizer.setSpeakerDiarization(SignatureParams.SPEAKER_DIARIZATION_CLUSTER);

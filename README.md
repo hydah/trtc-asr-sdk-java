@@ -1,5 +1,13 @@
 # TRTC-ASR Java SDK
 
+> **本仓库已迁移 / Repository Moved**
+>
+> 本仓库已迁移至 **[Tencent-RTC/trtc-asr-sdk-java](https://github.com/Tencent-RTC/trtc-asr-sdk-java)**，后续更新均在新仓库发布。本仓库保留 v1.0.0 代码与 tag 供存量引用，不再维护。
+>
+> This repository has moved to **[Tencent-RTC/trtc-asr-sdk-java](https://github.com/Tencent-RTC/trtc-asr-sdk-java)**. This repo stays at v1.0.0 for existing references and is no longer maintained.
+
+---
+
 基于 TRTC 鉴权体系的语音识别（ASR）Java SDK，支持实时语音识别（WebSocket）、一句话识别（HTTP）和录音文件识别（异步 HTTP）三种模式。
 
 > 其他语言 SDK：[Go](https://github.com/hydah/trtc-asr-sdk-go) | [Python](https://github.com/hydah/trtc-asr-sdk-python) | [Node.js](https://github.com/hydah/trtc-asr-sdk-nodejs) | [Rust](https://github.com/hydah/trtc-asr-sdk-rust) | [C++](https://github.com/hydah/trtc-asr-sdk-cpp)
